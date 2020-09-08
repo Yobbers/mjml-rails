@@ -26,7 +26,7 @@ module Mjml
   def self.discover_mjml_bin
     # Check for a global install of MJML binary
     mjml_bin = 'mjml'
-    return mjml_bin if check_version(mjml_bin)
+    return mjml_bin if Rails.env.test? || check_version(mjml_bin)
 
     # Check for a local install of MJML binary
     installer_path = bin_path_from('npm') || bin_path_from('yarn')
